@@ -28,7 +28,11 @@ if (isset($_POST['submit'])) {
 
     // Result 1
     print("Result 1 => " . $result1);
-    echo "Result 1 => " . $result1;
+
+    if (!$result1) {
+        $errorMessage = error_get_last()['message'];
+        print("ERROR MESSAGE => " . $errorMessage);
+    }
 
     //Checking if Mails sent successfully
     if ($result1) {
