@@ -1,4 +1,43 @@
-<?php include 'sentMail.php'; ?>
+<?php
+
+if (isset($_POST['submit'])) {
+
+    // Email will sent to this Email
+    $mailto = "adilanga@gmail.com";
+
+    //getting customer data
+    $name = $_POST['name']; //getting customer name
+    $fromEmail = $_POST['email']; //getting customer email
+    $phone = $_POST['tel']; //getting customer Phome number
+    $subject = $_POST['subject']; //getting subject line from client
+    $subject2 = "Confirmation: Message was submitted successfully"; // For customer confirmation
+
+    //Email body I will receive
+    $message = "Cleint Name: " . $name . "\n" . "Phone Number: " . $phone . "\n\n" . "Client Message: " . "\n" . $_POST['message'];
+
+    // Always set content-type when sending HTML email
+    $headers = "MIME-Version: 1.0" . "\r\n";
+    $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
+
+    // More headers
+    $headers .= 'From: ' . $fromEmail . "\r\n";
+    $headers .= 'Cc: ' . $fromEmail . "\r\n";
+
+    //PHP mailer function
+    $result1 = mail($mailto, $subject, $message, $headers); // This email sent to My address
+
+    // Result 1
+    print("Result 1 => " . $result1);
+    echo "Result 1 => " . $result1;
+
+    //Checking if Mails sent successfully
+    if ($result1) {
+        $success = "Your Message was sent Successfully!";
+    } else {
+        $failed = "Sorry! Message was not sent, Try again Later.";
+    }
+}
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -42,4 +81,5 @@
         </form>
     </div>
 </body>
+
 </html>
