@@ -13,15 +13,10 @@ if (isset($_POST['submit'])) {
     $subject2 = "Confirmation: Message was submitted successfully"; // For customer confirmation
 
     //Email body I will receive
-    $message = "Cleint Name: " . $name . "\n"
-        . "Phone Number: " . $phone . "\n\n"
-        . "Client Message: " . "\n" . $_POST['message'];
+    $message = "Cleint Name: " . $name . "\n" . "Phone Number: " . $phone . "\n\n" . "Client Message: " . "\n" . $_POST['message'];
 
     //Message for client confirmation
-    $message2 = "Dear" . $name . "\n"
-        . "Thank you for contacting us. We will get back to you shortly!" . "\n\n"
-        . "You submitted the following message: " . "\n" . $_POST['message'] . "\n\n"
-        . "Regards," . "\n" . "- HMA WebDesign";
+    $message2 = "Dear" . $name . "\n" . "Thank you for contacting us. We will get back to you shortly!" . "\n\n" . "You submitted the following message: " . "\n" . $_POST['message'] . "\n\n" . "Regards," . "\n" . "- HMA WebDesign";
 
     //Email headers
     $headers = "From: " . $fromEmail; // Client email, I will receive
@@ -31,6 +26,14 @@ if (isset($_POST['submit'])) {
 
     $result1 = mail($mailto, $subject, $message, $headers); // This email sent to My address
     $result2 = mail($fromEmail, $subject2, $message2, $headers2); //This confirmation email to client
+
+    // Result 1
+    print("Result 1 => " . $result1);
+    echo "Result 1 => " . $result1;
+
+    // Result 2
+    print("Result 1 => " . $result2);
+    echo "Result 1 => " . $result2;
 
     //Checking if Mails sent successfully
 
