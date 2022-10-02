@@ -3,7 +3,7 @@
 if (isset($_POST['submit'])) {
 
     // Email will sent to this Email
-    $mailto = "adilanga@gmail.com";
+    $mailto = "example@gmail.com";
 
     //getting customer data
     $name = $_POST['name']; //getting customer name
